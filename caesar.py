@@ -27,10 +27,12 @@ def caesar_logic():
             except ValueError:
                 print("Try again, this time use numeric.")
         for char in dec_msg:
-            new_index = (alphabets.index(char) - num_shift) % 26
-            shifted_ltr = alphabets[new_index]
-            print(f"{shifted_ltr}", end="")
-
+            if char in alphabets:
+                new_index = (alphabets.index(char) - num_shift) % 26
+                shifted_ltr = alphabets[new_index]
+                print(f"{shifted_ltr}", end="")
+            else:
+                print(char, end="")
 
     while True:
         user_choice = input("Choose between enc for encryption and dec for decryption: ").lower()
